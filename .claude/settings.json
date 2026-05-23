@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet test *)",
+      "Bash(powershell -Command \"Stop-Process -Id 14508 -Force\")",
+      "Bash(powershell -Command \"Stop-Process -Id 34680 -Force\")",
+      "Bash(findstr -i appsettings)",
+      "Bash(git mv *)",
+      "Bash(findstr /c:\"Test\" /c:\"Passed\" /c:\"NUnit\")",
+      "Bash(findstr /v \"warning\")",
+      "Bash(findstr /c:\"    \")",
+      "Bash(findstr /v warning)",
+      "Bash(findstr /v \"TodoApi\")"
+    ]
+  }
+}

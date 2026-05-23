@@ -55,3 +55,20 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Node / Vite (frontend)
+node_modules/
+dist/
+
+# IDE
+.vs/
+.vscode/
+*.user
+
+# SQLite (runtime DB created on first run)
+todo.db
+todo.db-journal
+todo.db-wal
+todo.db-shm
+
+.claude/settings.local.json
