@@ -10,7 +10,8 @@
       "Bash(findstr /v \"warning\")",
       "Bash(findstr /c:\"    \")",
       "Bash(findstr /v warning)",
-      "Bash(findstr /v \"TodoApi\")"
+      "Bash(findstr /v \"TodoApi\")",
+      "Bash(git check-ignore *)"
     ]
   }
 }
