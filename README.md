@@ -115,8 +115,9 @@ App features that were included:
 
 ## What I'd do with another day
 
-- **Item reorder via "Move to top / Move to bottom"** (Phase 2 of the build plan). Backend endpoint + tests + a small grip-handle popover on each open item. Spec'd, not shipped.
+- **Bulk deletion** Clearing out open/completed items with one click
 - **Client-side search across list names and item text** (Phase 3 of the build plan). A simple top-bar input with debounced filtering, no separate palette UI. Spec'd, not shipped.
+- **Item reorder via "Move to top / Move to bottom"** (Phase 2 of the build plan). Backend endpoint + tests + a small grip-handle popover on each open item. Spec'd, not shipped.
 - **Drag-and-drop reorder** (HTML5 DnD or `@dnd-kit/core`) with a backend endpoint accepting a full ordered list of item IDs in one request, so reorders are atomic.
 - **The full ⌘K palette** with grouped, keyboard-navigable results and substring highlighting.
 - **Account creation + password reset.**
@@ -140,7 +141,7 @@ App features that were included:
 
 ## Architecture notes
 
-- **One backend project.** Controllers call Dapper directly via an injected `ISqliteConnectionFactory`. No repository layer wrapping Dapper (Dapper is already thin enough). No CQRS/MediatR. No `Application/Domain/Infrastructure` split. This shape is deliberate; on a CRUD todo app, the extra structure would be claim without benefit.
+- **One backend project.** Controllers call Dapper directly via an injected `ISqliteConnectionFactory`. No repository layer wrapping Dapper (Dapper is already thin enough). No `Application/Domain/Infrastructure` split.
 - **The schema lives in one place** — `Db/Schema.cs` as raw SQL, applied idempotently at startup and per test fixture. No migration framework — the app has one schema version.
 - **SQLite foreign keys are explicitly enabled per connection** (`PRAGMA foreign_keys = ON` inside `SqliteConnectionFactory.OpenConnection`); without this, `ON DELETE CASCADE` silently doesn't fire — a footgun specific to SQLite.
 - **Errors use a single consistent shape** — `{ "error": { "code", "message" } }`. The frontend specifically branches on three codes (`INVALID_CREDENTIALS`, `DUPLICATE_NAME`, `NOT_FOUND`); for everything else it renders the server's `message` verbatim.
