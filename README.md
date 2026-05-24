@@ -105,6 +105,7 @@ App features that were included:
 
 - **Account creation / password reset.** Two seeded users are sufficient to demonstrate auth + ownership.
 - **Tagging/categories.** IMO this gets out of hand quick. Multiple 'to do' lists is enough.
+- **Due dates.** Overkill for a to do list. If the assignment was "task management" then maybe I'd consider including.
 - **Search.** Client-side search across list names and item text. A simple top-bar input with debounced filtering, no separate palette UI. Spec'd, not shipped.
 - **Item reordering.** Useful but didn't seem necessary for the MVP.
 - **⌘K command palette.** The wireframe shows a grouped, keyboard-navigable search palette with substring highlighting. The plan replaces it with a simpler top-bar search box. *Not shipped in the current submission state.*
