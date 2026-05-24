@@ -84,7 +84,7 @@ The frontend's API base URL is currently still hardcoded in [`frontend/todo-web/
 
 ## What I built
 
-I used Claude Design to come up with the app views, layouts and features. I had it generate a handoff document that I then used with Claude Cowork (along with the take-home test docs provided by Paola) to work through a detailed plan that would be used by Claude Code. Cowork output a Claude.md file and BUILD_PLAN.md file that were provided to Claude Code to do the development. I left the resources that were used in the ```/docs``` folder for transparency. I reviewed the code, configuration, db, etc., did testing, and used Claude Code to refine the app and fix issues. Becuase I used Claude, there are more tests than I would written by hand but I've reviewed them and they seem reasonable (I'll own it).
+I used Claude Design to come up with the app views, layouts and features. I had it generate a handoff document that I then used with Claude Cowork (along with the take-home test PDFs provided by Paola) to work through a detailed plan that would be used by Claude Code. Cowork output a Claude.md file and BUILD_PLAN.md file that were provided to Claude Code to do the development. I left the resources that were used in the ```/docs``` folder for transparency. I reviewed the code, configuration, db, etc., did testing, and used Claude Code to refine the app and fix issues. Becuase I used Claude, there are more tests than I would written by hand but I've reviewed them and they seem reasonable (I'll own it).
 
 I thought the app needed to have multiple lists--I use google keep all the time and wanted this app to have enough substance to not be totally throwaway.
 
@@ -103,8 +103,10 @@ App features that were included:
 
 ## What I deliberately left out
 
-- **Account creation / password reset.** The exercise is graded on the closed loop; two seeded users are sufficient to demonstrate auth + ownership.
-- **Drag-and-drop reorder.** The full wireframe set includes DnD for items. The plan instead is "Move to top / Move to bottom" — a smaller, fully-testable reorder UX. *Not shipped in the current submission state — see "What I'd do with another day."*
+- **Account creation / password reset.** Two seeded users are sufficient to demonstrate auth + ownership.
+- **Tagging/categories.** IMO this gets out of hand quick. Multiple 'to do' lists is enough.
+- **Search.** Client-side search across list names and item text. A simple top-bar input with debounced filtering, no separate palette UI. Spec'd, not shipped.
+- **Item reordering.** Useful but didn't seem necessary for the MVP.
 - **⌘K command palette.** The wireframe shows a grouped, keyboard-navigable search palette with substring highlighting. The plan replaces it with a simpler top-bar search box. *Not shipped in the current submission state.*
 - **Sort modes (A-Z / Recent).** Lists are sorted A-Z server-side. The user-facing toggle adds state surface for marginal value.
 - **Separate mobile patterns** — bottom sheets, full-screen mobile search sheet. The single responsive layout works on phones; bespoke mobile patterns would roughly double the UI work.
@@ -116,8 +118,6 @@ App features that were included:
 ## What I'd do with another day
 
 - **Bulk deletion** Clearing out open/completed items with one click
-- **Client-side search across list names and item text** (Phase 3 of the build plan). A simple top-bar input with debounced filtering, no separate palette UI. Spec'd, not shipped.
-- **Item reorder via "Move to top / Move to bottom"** (Phase 2 of the build plan). Backend endpoint + tests + a small grip-handle popover on each open item. Spec'd, not shipped.
 - **Drag-and-drop reorder** (HTML5 DnD or `@dnd-kit/core`) with a backend endpoint accepting a full ordered list of item IDs in one request, so reorders are atomic.
 - **The full ⌘K palette** with grouped, keyboard-navigable results and substring highlighting.
 - **Account creation + password reset.**
